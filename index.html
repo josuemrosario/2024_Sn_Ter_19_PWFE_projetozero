@@ -9,6 +9,17 @@
 
     <script>
 
+        const bobMarley = {
+            nome:"bob marley",
+            idade:"100",
+            espirrar(){
+                console.log('acabei de espirrar')
+            }
+        }
+
+        console.log(bobMarley.nome)
+        console.log(bobMarley.espirrar())
+
         meuNome = "josue Micaroni do Rosario"
         minhaIdade = calculaIdade(parseInt(window.prompt("Ano nascimento",1979)))
         // maiorIdade = maiorIdade(minhaIdade)
@@ -30,7 +41,8 @@
 
         function calculaIdade(idade){
             //corpo da funcao
-            return 2024 - idade
+            let dataAtual = new Date()
+            return dataAtual.getFullYear() - idade
 
         }
 
