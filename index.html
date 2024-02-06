@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        meuNome = "josue Micaroni do Rosario"
+        minhaIdade = calculaIdade(parseInt(window.prompt("Ano nascimento",1979)))
+        // maiorIdade = maiorIdade(minhaIdade)
+
+        nomeMae ='Joanira da silva'
+        maeIdade = calculaIdade( parseInt(window.prompt("Ano nascimento mae",1969)) )
+        // maiorIdadeMae = maiorIdade(maeIdade)
+
+        // console.log(typeof(meuNome))
+        // console.log(typeof(minhaIdade))
+
+        console.log(`Nome: ${meuNome}`)
+        console.log('idade:',minhaIdade)
+        console.log(`Maior Idade: ${maiorIdade(minhaIdade)}`)
+        
+        console.log("Nome Mae: ",nomeMae)
+        console.log("idade mae:",maeIdade)
+        console.log(`Maior Idade: ${maiorIdade(maeIdade)}`)
+
+        function calculaIdade(idade){
+            //corpo da funcao
+            return 2024 - idade
+
+        }
+
+        function maiorIdade(idade){
+            return idade>=18 ? "maior" : "menor"
+        }
+
+
+
+    </script>
+</body>
+</html>
