@@ -9,46 +9,75 @@
 
     <script>
 
-        const bobMarley = {
-            nome:"bob marley",
-            idade:"100",
-            espirrar(){
-                console.log('acabei de espirrar')
+        //Como criar um objeto literal
+        //======================================
+        // const bobMarley = {
+        //     nome:"bob marley",
+        //     idade:"100",
+        //     espirrar(){
+        //         console.log('acabei de espirrar')
+        //     }
+        // }
+        // console.log(bobMarley.nome)
+        // bobMarley.espirrar()
+
+        // const josueRosario = {
+        //     nome:"josue Micaroni do Rosario",
+        //     idade: calculaIdade(parseInt(window.prompt("Ano nascimento",1979)))
+        // }
+
+        class Pessoa{
+
+            constructor(nome,anoNasc){
+                this.nome = nome,
+                this.anoNasc = anoNasc
+           }
+           
+            calculaIdade(){
+                //corpo da funcao
+                let dataAtual = new Date()
+                return dataAtual.getFullYear() - this.anoNasc
             }
+
+            maiorIdade(){
+                return this.calculaIdade() >=18 ? "maior" : "menor"
+            }
+
+
         }
 
-        console.log(bobMarley.nome)
-        console.log(bobMarley.espirrar())
+        const josueRosario = new Pessoa('josue Micaroni do Rosario',1979)
+        const joaniraSilva = new Pessoa('Joanira da silva',1969)
+        
 
-        meuNome = "josue Micaroni do Rosario"
-        minhaIdade = calculaIdade(parseInt(window.prompt("Ano nascimento",1979)))
+
+        // meuNome = "josue Micaroni do Rosario"
+        // minhaIdade = calculaIdade(parseInt(window.prompt("Ano nascimento",1979)))
         // maiorIdade = maiorIdade(minhaIdade)
 
-        nomeMae ='Joanira da silva'
-        maeIdade = calculaIdade( parseInt(window.prompt("Ano nascimento mae",1969)) )
+
+        // const joaniraSilva = {
+        //     nome: 'Joanira da silva',
+        //     idade: calculaIdade( parseInt(window.prompt("Ano nascimento mae",1969)) )
+        // }
+        // nomeMae ='Joanira da silva'
+        // maeIdade = calculaIdade( parseInt(window.prompt("Ano nascimento mae",1969)) )
         // maiorIdadeMae = maiorIdade(maeIdade)
 
         // console.log(typeof(meuNome))
         // console.log(typeof(minhaIdade))
 
-        console.log(`Nome: ${meuNome}`)
-        console.log('idade:',minhaIdade)
-        console.log(`Maior Idade: ${maiorIdade(minhaIdade)}`)
+        //document.write('<h1> que legal </h1>')
+
+        document.write(`Nome: ${josueRosario.nome} <br>`)
+        document.write('idade:',josueRosario.calculaIdade(),'<br>')
+        document.write(`Maior Idade: ${josueRosario.maiorIdade()}<br>`)
         
-        console.log("Nome Mae: ",nomeMae)
-        console.log("idade mae:",maeIdade)
-        console.log(`Maior Idade: ${maiorIdade(maeIdade)}`)
+        document.write("Nome Mae: ",joaniraSilva.nome,'<br>')
+        document.write("idade mae:",joaniraSilva.calculaIdade(),'<br>')
+        document.write(`Maior Idade: ${joaniraSilva.maiorIdade()}`,'<br>')
 
-        function calculaIdade(idade){
-            //corpo da funcao
-            let dataAtual = new Date()
-            return dataAtual.getFullYear() - idade
-
-        }
-
-        function maiorIdade(idade){
-            return idade>=18 ? "maior" : "menor"
-        }
+        
 
 
 

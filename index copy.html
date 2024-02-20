@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Meus dados</h1>
+    <label for="nome">Nome</label>
+    <input id="nome" type="text" ><br>
+    <label for="anonascimento">Ano Nascimento</label>
+    <input id="anonascimento" type="number" value=""><br>
+    <button id="calcMinhaIdade"  >calcular Idade</button>
+    <H4 id="idade">Idade:</H4>
+    <label for="maioridade">maiorIdade</label>
+    <input id="maioridade" type="checkbox" name="maiorIdade" id=""><br>
+
+
+    <h1>Dados Minha Mae</h1>
+    <label for="nomemae">Nome</label>
+    <input id="nomemae" type="text"><br>
+    <label for="anonascimentomae">Idade</label>
+    <input id="anonascimentomae" type="number"><br>
+    <button id="calcIdadeMae">calcular Idade</button>
+    <H4 id="idademae">Idade:</H4>
+    <label for="maioridademae">maiorIdade</label>
+    <input id="maioridademae" type="checkbox" name="maiorIdade" id=""><br>
+
+
+    <script>
+
+
+
+
+        window.addEventListener('load', function() {
+
+            document.getElementById("calcMinhaIdade").addEventListener('click',function(){
+                clickCalcIdade('nome','anonascimento','idade')
+            })
+            
+            document.getElementById("calcIdadeMae").addEventListener('click',function(){
+                clickCalcIdade('nomemae','anonascimentomae','idademae')
+            })
+
+            class Pessoa{
+
+                constructor(nome,anoNasc){
+                    this.nome = nome,
+                    this.anoNasc = anoNasc
+                }
+
+                calculaIdade(){
+                    //corpo da funcao
+                    let dataAtual = new Date()
+                    return dataAtual.getFullYear() - this.anoNasc
+                }
+
+                maiorIdade(){
+                    return this.calculaIdade() >=18 ? "maior" : "menor"
+                }
+
+
+            }
+
+            function clickCalcIdade(idNome,idNasc,idIdade){
+
+                                
+                nome = document.getElementById(idNome).value
+                nascimento = Number(document.getElementById(idNasc).value)
+                idade = document.getElementById(idIdade)
+
+
+                 const pessoa = new Pessoa(nome,nascimento)
+
+                idade.innerHTML = "Idade:" + pessoa.calculaIdade()
+
+                
+            }
+
+
+
+            // const josueRosario = new Pessoa('josue Micaroni do Rosario',1979)
+            // const joaniraSilva = new Pessoa('Joanira da silva',1969)
+        })
+
+
+
+
+    </script>
+</body>
+</html>
