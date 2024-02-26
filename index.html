@@ -7,7 +7,72 @@
 </head>
 <body>
 
+    <h1>Meus dados</h1>
+    <label for="nome">Nome</label>
+    <input id="nome" type="text" ><br>
+    <label for="anonascimento">Ano Nascimento</label>
+    <input id="anonascimento" type="number" value=""><br>
+    <button id="meubotao" onclick="" >calcular Idade</button>
+    <H4 id="idade">Idade:</H4>
+    <label for="maioridade">maiorIdade</label>
+    <input id="maioridade" type="checkbox" name="maiorIdade" id=""><br>
+
+
+    <h1>Dados Minha Mae</h1>
+    <label for="nomemae">Nome</label>
+    <input id="nomemae" type="text"><br>
+    <label for="anonascimentomae">Idade</label>
+    <input id="anonascimentomae" type="number"><br>
+    <button id="botaomae" onclick="">calcular Idade</button>
+    <H4 id="idademae">Idade:</H4>
+    <label for="maioridademae">maiorIdade</label>
+    <input id="maioridademae" type="checkbox" name="maiorIdade" id=""><br>
+
+
     <script>
+
+        window.addEventListener('load',function(){
+        
+            meubotao = document.getElementById('meubotao')
+            botaomae = document.getElementById('botaomae')
+
+            meubotao.addEventListener('click',()=>{
+                clickCalcIdade('anonascimento','idade','nome')
+            })
+            botaomae.addEventListener('click',()=>{
+                clickCalcIdade('anonascimentomae','idademae','nomemae')
+            })
+
+            function clickCalcIdade(idAnoNasc,idIdade,idNome){
+                console.log(document.getElementById(idAnoNasc).value)
+                console.log(document.getElementById(idIdade).innerText)
+                console.log(document.getElementById(idNome).value)
+            }
+
+            class Pessoa{
+
+                constructor(nome,anoNasc){
+                    this.nome = nome,
+                    this.anoNasc = anoNasc
+                }
+
+                calculaIdade(){
+                //corpo da funcao
+                    let dataAtual = new Date()
+                    return dataAtual.getFullYear() - this.anoNasc
+                }
+
+                maiorIdade(){
+                    return this.calculaIdade() >=18 ? "maior" : "menor"
+                }
+
+                
+            }            
+            const josueRosario = new Pessoa('josue Micaroni do Rosario',1979)
+            const joaniraSilva = new Pessoa('Joanira da silva',1969)
+        })
+
+
 
         //Como criar um objeto literal
         //======================================
@@ -26,28 +91,10 @@
         //     idade: calculaIdade(parseInt(window.prompt("Ano nascimento",1979)))
         // }
 
-        class Pessoa{
-
-            constructor(nome,anoNasc){
-                this.nome = nome,
-                this.anoNasc = anoNasc
-           }
-           
-            calculaIdade(){
-                //corpo da funcao
-                let dataAtual = new Date()
-                return dataAtual.getFullYear() - this.anoNasc
-            }
-
-            maiorIdade(){
-                return this.calculaIdade() >=18 ? "maior" : "menor"
-            }
 
 
-        }
 
-        const josueRosario = new Pessoa('josue Micaroni do Rosario',1979)
-        const joaniraSilva = new Pessoa('Joanira da silva',1969)
+
         
 
 
@@ -69,17 +116,13 @@
 
         //document.write('<h1> que legal </h1>')
 
-        document.write(`Nome: ${josueRosario.nome} <br>`)
-        document.write('idade:',josueRosario.calculaIdade(),'<br>')
-        document.write(`Maior Idade: ${josueRosario.maiorIdade()}<br>`)
+        // document.write(`Nome: ${josueRosario.nome} <br>`)
+        // document.write('idade:',josueRosario.calculaIdade(),'<br>')
+        // document.write(`Maior Idade: ${josueRosario.maiorIdade()}<br>`)
         
-        document.write("Nome Mae: ",joaniraSilva.nome,'<br>')
-        document.write("idade mae:",joaniraSilva.calculaIdade(),'<br>')
-        document.write(`Maior Idade: ${joaniraSilva.maiorIdade()}`,'<br>')
-
-        
-
-
+        // document.write("Nome Mae: ",joaniraSilva.nome,'<br>')
+        // document.write("idade mae:",joaniraSilva.calculaIdade(),'<br>')
+        // document.write(`Maior Idade: ${joaniraSilva.maiorIdade()}`,'<br>')
 
     </script>
 </body>
