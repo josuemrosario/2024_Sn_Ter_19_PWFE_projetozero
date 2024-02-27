@@ -37,16 +37,25 @@
             botaomae = document.getElementById('botaomae')
 
             meubotao.addEventListener('click',()=>{
-                clickCalcIdade('anonascimento','idade','nome')
+                clickCalcIdade('anonascimento','idade','nome','maioridade')
             })
             botaomae.addEventListener('click',()=>{
-                clickCalcIdade('anonascimentomae','idademae','nomemae')
+                clickCalcIdade('anonascimentomae','idademae','nomemae','maioridademae')
             })
 
-            function clickCalcIdade(idAnoNasc,idIdade,idNome){
-                console.log(document.getElementById(idAnoNasc).value)
-                console.log(document.getElementById(idIdade).innerText)
-                console.log(document.getElementById(idNome).value)
+            function clickCalcIdade(idAnoNasc,idIdade,idNome,idMaiorIdade){
+                
+                ano = document.getElementById(idAnoNasc).value
+                nome = document.getElementById(idNome).value
+                const pessoa = new Pessoa(nome,Number(ano))
+                
+                document.getElementById(idIdade).innerText = "Idade : " + pessoa.calculaIdade()
+                document.getElementById(idMaiorIdade).checked = pessoa.maiorIdade()
+
+
+
+                //verifica se a pessoa é maior de idade
+
             }
 
             class Pessoa{
@@ -63,13 +72,13 @@
                 }
 
                 maiorIdade(){
-                    return this.calculaIdade() >=18 ? "maior" : "menor"
+                    return this.calculaIdade() >=18
                 }
 
                 
             }            
-            const josueRosario = new Pessoa('josue Micaroni do Rosario',1979)
-            const joaniraSilva = new Pessoa('Joanira da silva',1969)
+            // const josueRosario = new Pessoa('josue Micaroni do Rosario',1979)
+            // const joaniraSilva = new Pessoa('Joanira da silva',1969)
         })
 
 
